@@ -13,6 +13,11 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
+    // Adicionar metodo para aumentar cantidad
+    // Obtener el indice para indicar el objeto a modificar
+    aumentar: function(state, index){
+      state.productos[index].cantidad++;
+    }
   },
   actions: {
   },
