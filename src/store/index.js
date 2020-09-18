@@ -17,6 +17,13 @@ export default new Vuex.Store({
     // Obtener el indice para indicar el objeto a modificar
     aumentar: function(state, index){
       state.productos[index].cantidad++;
+    },
+    // Crear la mutacion reiniciar
+    reiniciar: function(state){
+      // Recorrer el array y setear en cero 
+      state.productos.forEach(elem => {
+        elem.cantidad = 0;
+      })
     }
   },
   actions: {

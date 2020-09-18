@@ -14,6 +14,11 @@
                 <span class="badge badge-primary badge-pill">{{ prod.cantidad }}</span>
             </li>
         </ul>
+        <!-- Adicionar boton reiniciar -->
+        <button class="btn btn-danger btn-block"
+                @click="reiniciar">
+            Reiniciar
+        </button>
     </div>
 </template>
 
@@ -30,8 +35,9 @@ export default {
         ...mapState(['productos'])
     },
     // 2) Mapear la mutacion aumentar
+    // 1) Mapear la mutacion reiniciar
     methods: {
-        ...mapMutations(['aumentar'])
+        ...mapMutations(['aumentar', 'reiniciar'])
     }
 }
 </script>
