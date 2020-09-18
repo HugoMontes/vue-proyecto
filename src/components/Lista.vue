@@ -5,8 +5,9 @@
 
         <!-- 3 Modificar el listado para iterar los productos -->
         <!-- 3) Para enviar el index a la mutacion modificar el v-for -->
+        <!-- 2) Llamar a la propiedad calculada arrayOrdenado -->
         <ul class="list-group">
-            <li v-for="(prod, index) of productos"
+            <li v-for="(prod, index) of arrayOrdenado"
                 :key="prod.id"
                 @click="aumentar(index)"
                 class="list-group-item d-flex justify-content-between align-items-center">
@@ -32,7 +33,11 @@ export default {
     name: 'Lista',
     // 2 Mapear el nombre del state productos
     computed: {
-        ...mapState(['productos'])
+        ...mapState(['productos']),
+        // 1) Adicionar propiedad computada para retornar array ordenado
+        arrayOrdenado: function() {
+            return this.productos.sort((a, b) => b.cantidad - a.cantidad)
+        }
     },
     // 2) Mapear la mutacion aumentar
     // 1) Mapear la mutacion reiniciar
